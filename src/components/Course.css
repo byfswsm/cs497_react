@@ -1,0 +1,13 @@
+.course {
+    color: black;
+    border-radius: 15px;
+    border-style: ridge;
+    padding: 16px;
+    height: 200px;
+    width: 160px;
+    margin: 10px;
+}
+
+.top {
+    height: 140px;
+}
