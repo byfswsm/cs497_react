@@ -1,0 +1,29 @@
+.allcourse {
+    float: left;
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: 30px;
+}
+
+input {
+    display: none;
+}
+
+label {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 25px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    border: 3px;
+    float: left;
+    display: inline;
+    font-size: 18px;
+    border-radius: 15px;
+    border-style: ridge;
+}
+
+label:hover {
+    background-color: green;
+}

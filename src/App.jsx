@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useJsonQuery } from './utilities/fetch';
 import './App.css';
 import Banner from './components/Banner';
-import CourseList from './components/CourseList';
+import TermPage from './components/TermPage';
 
 const queryClient = new QueryClient();
 
@@ -16,7 +16,8 @@ const Main = () => {
   return (
     <div>
       <Banner title={data.title} />
-      <CourseList courses={data.courses} />
+      <TermPage courses={data.courses} />
+
     </div>
   );
 }
