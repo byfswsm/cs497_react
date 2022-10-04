@@ -36,12 +36,18 @@ const TermSelector = ({ selection, setSelection }) => (
 
 const TermPage = ({ courses }) => {
     const [selection, setSelection] = useState(() => Object.keys(terms)[0]);
-    const termselection = Object.values(courses).filter(course => selection === course.term)
+    const [selected, setselected] = useState([]);
+    const termselection = Object.values(courses).filter(course => selection === course.term);
+    const toggleSelected = (item) => setselected(
+        selected.includes(item)
+            ? selected.filter(x => x !== item)
+            : [...selected, item]
+    );
     return (
         <div>
             <TermSelector selection={termselection} setSelection={setSelection} />
             <div className="allcourse">
-                {Object.entries(termselection).map(([id, course]) => <Course key={id} course={course} />)}
+                {Object.entries(termselection).map(([id, course]) => <Course key={id} course={course} selected={selected} toggleSelected={toggleSelected} />)}
             </div>
         </div>
     );

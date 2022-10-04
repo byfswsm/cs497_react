@@ -5,9 +5,16 @@
     padding: 16px;
     height: 200px;
     width: 170px;
-    margin: 10px;
+    margin: 20px;
+    background-color: beige;
 }
 
 .top {
     height: 140px;
+}
+
+.course .selected {
+    border-radius: 5px;
+    border-style: hidden;
+    background-color: rgba(36, 162, 47, 0.428)
 }
