@@ -3,6 +3,9 @@ import { useJsonQuery } from './utilities/fetch';
 import './App.css';
 import Banner from './components/Banner';
 import TermPage from './components/TermPage';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+import { useState } from 'react';
 
 const queryClient = new QueryClient();
 
@@ -22,13 +25,16 @@ const Main = () => {
   );
 }
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <div className="container">
-      <Main />
-    </div>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <Main />
+      </div>
+    </QueryClientProvider>
+  )
+};
 
 export default App;
 

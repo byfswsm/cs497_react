@@ -1,0 +1,11 @@
+.cart {
+    background-color: rgba(235, 206, 99, 0.916);
+    width: 400px;
+    padding: 0 20px;
+    border-radius: 20px;
+    margin-right: 30px;
+}
+
+.coursename {
+    font-size: 17px;
+}

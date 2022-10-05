@@ -1,6 +1,9 @@
 import { useState } from "react";
-import Course from "./Course";
+import CourseList from "./CourseList";
+import Cart from "./Cart";
 import './TermPage.css';
+import Popup from 'reactjs-popup';
+
 
 const terms = {
     Fall: 'Fall items...',
@@ -9,7 +12,7 @@ const terms = {
 };
 
 const TermButton = ({ term, selection, setSelection }) => (
-    <div>
+    <div className="buttonback">
         <input
             type="radio"
             id={term}
@@ -17,8 +20,8 @@ const TermButton = ({ term, selection, setSelection }) => (
             checked={term === selection}
             autoComplete="off"
             onChange={() => setSelection(term)} />
-        <label className="btn btn-success mb-1 p-2" htmlFor={term}>
-            <div className="button">
+        <label className="" htmlFor={term}>
+            <div className="">
                 {term}
             </div>
         </label>
@@ -37,17 +40,27 @@ const TermSelector = ({ selection, setSelection }) => (
 const TermPage = ({ courses }) => {
     const [selection, setSelection] = useState(() => Object.keys(terms)[0]);
     const [selected, setselected] = useState([]);
-    const termselection = Object.values(courses).filter(course => selection === course.term);
+
+
+    const [open, setOpen] = useState(false);
+    const openModal = () => setOpen(true);
+    const closeModal = () => setOpen(false);
+
     const toggleSelected = (item) => setselected(
         selected.includes(item)
             ? selected.filter(x => x !== item)
             : [...selected, item]
     );
+
+    const termselection = Object.entries(courses).filter(([id, course]) => selection === course.term);
     return (
         <div>
             <TermSelector selection={termselection} setSelection={setSelection} />
+            <Popup trigger={<button className="button"><i className="bi bi-cart4"></i></button>} position="bottom right">
+                <Cart selected={selected} />
+            </Popup>
             <div className="allcourse">
-                {Object.entries(termselection).map(([id, course]) => <Course key={id} course={course} selected={selected} toggleSelected={toggleSelected} />)}
+                <CourseList courses={termselection} selected={selected} toggleSelected={toggleSelected} />
             </div>
         </div>
     );
