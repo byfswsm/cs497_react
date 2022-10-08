@@ -41,3 +41,15 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+.selected {
+  border-radius: 5px;
+  border-style: hidden;
+  background-color: rgba(36, 162, 47, 0.428)
+}
+
+.disabled {
+  border-radius: 5px;
+  border-style: hidden;
+  background-color: rgba(207, 35, 35, 0.6);
+}
