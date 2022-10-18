@@ -1,0 +1,8 @@
+button {
+    background-color: #61dafb;
+    float: right;
+    height: 50px;
+    width: 100px;
+    border-radius: 15px;
+    border-style: ridge;
+}

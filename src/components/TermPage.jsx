@@ -1,8 +1,9 @@
 import { useState } from "react";
 import CourseList from "./CourseList";
-import Cart from "./Cart";
 import './TermPage.css';
 import Popup from 'reactjs-popup';
+import Cart from './Cart';
+
 
 
 const terms = {
@@ -37,7 +38,7 @@ const TermSelector = ({ selection, setSelection }) => (
 );
 
 
-const TermPage = ({ courses }) => {
+const TermPage = ({ courses, profile }) => {
     const [selection, setSelection] = useState(() => Object.keys(terms)[0]);
     const [selected, setselected] = useState([]);
     const [disabled, setDisabled] = useState([]);
@@ -98,7 +99,7 @@ const TermPage = ({ courses }) => {
                 <Cart selected={selected} />
             </Popup>
             <div className="allcourse">
-                <CourseList courses={termselection} selected={selected} toggleSelected={toggleSelected} disabled={disabled} />
+                <CourseList courses={termselection} selected={selected} toggleSelected={toggleSelected} disabled={disabled} isAdmin={profile.isAdmin} />
             </div>
         </div>
     );
