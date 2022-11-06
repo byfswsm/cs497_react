@@ -2,7 +2,7 @@ import React from "react";
 import './Cart.css';
 
 const Cart = ({ selected }) => (
-    <div className="cart">
+    <div className="cart" data-cy="course" >
         {
             selected.length === 0
                 ? (<div className="begin">
